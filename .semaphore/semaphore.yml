@@ -37,7 +37,9 @@ blocks:
             # More on caching: https://docs.semaphoreci.com/article/149-caching
             # - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH,gems-master
             # - bundle install --deployment --path .bundle
-            - bundle install bundle config set deployment 'true' bundle config set path 'vendor/bundle' 
+            - bundle install 
+            - bundle config set deployment 'true'
+            - bundle config set path 'vendor/bundle' 
             # Store the latest version of dependencies in cache,
             # to be used in next blocks and future workflows:
             - cache store
