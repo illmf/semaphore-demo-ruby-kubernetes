@@ -57,7 +57,9 @@ blocks:
             # restored, but generally this is not the case with other package
             # managers. Installation will not actually run and command will
             # finish quickly:
-            - bundle install --deployment --path vendor/bundle
+            - bundle install
+            - bundle config set deployment 'true'
+            - bundle config set path 'vendor/bundle' 
             # - bundle install --deployment --path .bundle
             # Run unit tests:
             - bundle exec rspec
