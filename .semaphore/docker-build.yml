@@ -19,7 +19,7 @@ blocks:
         - name: AWS_DEFAULT_REGION
           value: us-east-2
         - name: ECR_REGISTRY
-          value: 231233177524.dkr.ecr.us-east-2.amazonaws.com/semaphore-demo-ruby-kubernetes
+          value: 231233177524.dkr.ecr.us-east-2.amazonaws.com/semaphore-demo-ruby-kubernetes:latest
       # Mount a secret which defines AWS_ACCESS_KEY_ID
       # and AWS_SECRET_ACCESS_KEY environment variables.
       # For info on creating secrets, see:
