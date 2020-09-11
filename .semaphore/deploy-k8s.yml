@@ -16,7 +16,6 @@ blocks:
         - name: aws-k8s
         # Import the AWS access key environment variables
         - name: AWS
-        
       # Define environment variables for the jobs on this block.
       # For info on environment variables, see:
       # https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
@@ -27,11 +26,6 @@ blocks:
         # Replace value with your ECR URL
         - name: ECR_REGISTRY
           value: 231233177524.dkr.ecr.us-east-2.amazonaws.com/semaphore-demo-ruby-kubernetes
-        
-        - name: AWS_ACCESS_KEY_ID
-          value: AKIATLVUSI62DL3LGBWA
-        - name: AWS_SECRET_ACCESS_KEY
-          value: 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    
       jobs:
         - name: Deploy
           commands:
@@ -46,7 +40,7 @@ blocks:
             - sudo pip install awscli
             - export ECR_PASSWORD=$(aws ecr get-login --no-include-email | awk '{print $6}')
             - kubectl delete secret aws-ecr || true
-            - kubectl create secret docker-registry aws-ecr --docker-server="https://231233177524.dkr.ecr.us-east-2.amazonaws.com/semaphore-demo-ruby-kubernetes" --docker-username=AWS --docker-password="$ECR_PASSWORD"
+            - kubectl create secret docker-registry aws-ecr --docker-server= https://231233177524.dkr.ecr.us-east-2.amazonaws.com/semaphore-demo-ruby-kubernetes --docker-username=AWS --docker-password= $ECR_PASSWORD
             - kubectl get secret aws-ecr
             # envsubst is a tool which will replace $SEMAPHORE_WORKFLOW_ID with
             # its current value. The same variable was used in docker-build.yml
